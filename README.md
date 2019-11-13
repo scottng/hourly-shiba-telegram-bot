@@ -1,7 +1,7 @@
 # Daily Shiba Telegram Bot
 A Telegram bot that sends shiba inu photos to you!
 
-Scott Ng, 2019
+Scott Ng,
 University of Southern California
 
 ## Setup
