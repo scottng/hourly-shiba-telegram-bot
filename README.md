@@ -1,8 +1,8 @@
-# Daily Shiba Telegram Bot
+# Hourly Shiba Telegram Bot
 A Telegram bot that sends shiba inu photos to you!
 
-Scott Ng,
-University of Southern California
+Scott Ng
+(University of Southern California)
 
 ## Setup
 A Telegram account is required to setup and use the bot. Send a message to @BotFather on Telegram to create a new bot account. After choosing a name and URL, BotFather will generate a **bot token**, which is a secret token that will be used to control the bot.
