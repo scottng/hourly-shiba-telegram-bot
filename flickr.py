@@ -1,10 +1,12 @@
 from random import seed
 from random import randint
 from datetime import datetime
-from config import *
 
 import logging
 import requests
+
+# Get config variable 
+FLICKR_API_KEY = os.environ.get('FLICKR_API_KEY')
 
 # Seed random number generator
 seed(datetime.now())

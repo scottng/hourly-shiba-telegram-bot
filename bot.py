@@ -11,7 +11,6 @@ from flickr import *
 
 # Get config variables
 BOT_TOKEN = os.environ.get('BOT_TOKEN')
-FLICKR_API_KEY = os.environ.get('FLICKR_API_KEY')
 CHANNEL_NAME = os.environ.get('CHANNEL_NAME')
 WEBOOK = os.environ.get('WEBHOOK')
 
