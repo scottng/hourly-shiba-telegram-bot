@@ -2,6 +2,7 @@ from random import seed
 from random import randint
 from datetime import datetime
 
+import os
 import logging
 import requests
 
