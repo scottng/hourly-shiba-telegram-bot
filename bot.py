@@ -12,7 +12,7 @@ from flickr import *
 # Get config variables
 BOT_TOKEN = os.environ.get('BOT_TOKEN')
 CHANNEL_NAME = os.environ.get('CHANNEL_NAME')
-WEBOOK = os.environ.get('WEBHOOK')
+WEBHOOK = os.environ.get('WEBHOOK')
 
 # Enable logging 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
