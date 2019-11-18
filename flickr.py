@@ -19,7 +19,7 @@ resultsPerPage = 250
 size ="b"
 
 # Return a random photo URL and the associated author URL
-def get_image():
+def get_photo():
     response = requests.get(get_flickr_search_request_url())
     if response.status_code != 200:
         # Something went wrong
@@ -39,7 +39,11 @@ def get_image():
         photo.get("secret"),
         size)
 
-    return photoURL
+    # generate authorURL
+    authorURL = make_author_URL(photo.get("owner"),
+        photo.get("id"))
+
+    return (photoURL, authorURL)
 
 # Generate URL for Flickr API search request
 def get_flickr_search_request_url():
@@ -49,21 +53,14 @@ def get_flickr_search_request_url():
     requestURL += "&content_type=1"                 # Photos only
     requestURL += "&nojsoncallback=1"
     requestURL += "&per_page=" + str(resultsPerPage) # Results per page
-    requestURL += "&tag_mode=any"                    # Any combination of tags
-    requestURL += "&tags=shiba,shibainu,akita,akitainu"
+    requestURL += "&tag_mode=all"                    # Any combination of tags
+    requestURL += "&tags=shiba,shibainu,dog"
 
     return requestURL
 
 
-def make_photo_URL(farm, server, img_id, secret, size):
-    url = "https://farm%s.staticflickr.com/%s/%s_%s_%s.jpg" % (farm, server, img_id, secret, size)
+def make_photo_URL(farm, server, photo_id, secret, size):
+    return "https://farm%s.staticflickr.com/%s/%s_%s_%s.jpg" % (farm, server, photo_id, secret, size)
 
-    return url
-
-# def make_author_URL():
-
-def main():
-    print(get_image())
-
-if __name__ == '__main__':
-    main()
+def make_author_URL(user_id, photo_id):
+    return "https://www.flickr.com/photos/%s/%s" % (user_id, photo_id)
