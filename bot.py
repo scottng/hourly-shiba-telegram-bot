@@ -18,7 +18,7 @@ WEBHOOK = os.environ.get('WEBHOOK')
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO)
 
-def callback_send_to_channel(context: telegram.ext.CallbackContext):
+def callback_send_to_channel(self, context: telegram.ext.CallbackContext):
     photo = get_photo()
 
     context.bot.send_photo(chat_id=CHANNEL_NAME, 
@@ -52,7 +52,7 @@ def main():
 
     # Get updater and dispatcher from telegram
     PORT = int(os.environ.get('PORT', '8443'))
-    updater = Updater(BOT_TOKEN)
+    updater = Updater(BOT_TOKEN, use_context=True)
 
     # Set up webhook
     updater.start_webhook(listen='0.0.0.0',
