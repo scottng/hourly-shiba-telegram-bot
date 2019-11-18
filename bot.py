@@ -18,7 +18,7 @@ WEBHOOK = os.environ.get('WEBHOOK')
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO)
 
-def callback_send_to_channel(self, context: telegram.ext.CallbackContext):
+def callback_send_to_channel(update: Update, context: CallbackContext):
     photo = get_photo()
 
     context.bot.send_photo(chat_id=CHANNEL_NAME, 
