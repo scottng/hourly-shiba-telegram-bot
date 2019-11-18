@@ -7,7 +7,6 @@
 import os
 import telegram
 from telegram.ext import (Updater, CommandHandler, Filters)
-from config import *
 from flickr import *
 
 # Get config variables
