@@ -4,6 +4,7 @@
 # Shibas every hour!
 # Telegram bot using the python-telegram-bot wrapper
 
+import os
 import telegram
 from telegram.ext import (Updater, CommandHandler, Filters)
 from config import *
@@ -46,7 +47,15 @@ def command_stop(update, context):
 def main():
 
     # Get updater and dispatcher from telegram
-    updater = Updater(BOT_TOKEN, use_context = True)
+    PORT = int(os.environ.get('PORT', '8443'))
+    updater = Updater(BOT_TOKEN)
+
+    # Set up webhook
+    updater.start_webhook(listen='0.0.0.0',
+                      port=PORT,
+                      url_path=BOT_TOKEN)
+
+    # Get dispatcher from updater
     dispatcher = updater.dispatcher
 
     # Get job queue from updater
@@ -65,6 +74,10 @@ def main():
 
     for name, function in commands.items():
         updater.dispatcher.add_handler(CommandHandler(name, function))
+
+    # Start listening for updates through the webhook
+    updater.bot.set_webhook(WEBHOOK)
+    updater.idle()
 
 if __name__ == '__main__':
     main()
