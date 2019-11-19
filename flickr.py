@@ -5,6 +5,7 @@ from datetime import datetime
 import os
 import logging
 import requests
+import shorten_url
 
 # Get config variable 
 FLICKR_API_KEY = os.environ.get('FLICKR_API_KEY')
@@ -66,4 +67,4 @@ def make_photo_URL(farm, server, photo_id, secret, size):
     return "https://farm%s.staticflickr.com/%s/%s_%s_%s.jpg" % (farm, server, photo_id, secret, size)
 
 def make_author_URL(user_id, photo_id):
-    return "https://www.flickr.com/photos/%s/%s" % (user_id, photo_id)
+    return "https://flic.kr/p/%s" % b58encode(int(photo_id))
