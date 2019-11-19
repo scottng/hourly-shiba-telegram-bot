@@ -5,7 +5,7 @@ from datetime import datetime
 import os
 import logging
 import requests
-import shorten_url
+from shorten_url import *
 
 # Get config variable 
 FLICKR_API_KEY = os.environ.get('FLICKR_API_KEY')
