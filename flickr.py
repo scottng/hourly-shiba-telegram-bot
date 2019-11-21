@@ -44,8 +44,7 @@ def get_photo():
         size)
 
     # generate authorURL
-    authorURL = make_author_URL(photo.get("owner"),
-        photo.get("id"))
+    authorURL = make_author_URL(photo.get("id"))
 
     return (photoURL, authorURL)
 
@@ -66,5 +65,5 @@ def get_flickr_search_request_url():
 def make_photo_URL(farm, server, photo_id, secret, size):
     return "https://farm%s.staticflickr.com/%s/%s_%s_%s.jpg" % (farm, server, photo_id, secret, size)
 
-def make_author_URL(user_id, photo_id):
+def make_author_URL(photo_id):
     return "https://flic.kr/p/%s" % b58encode(int(photo_id))

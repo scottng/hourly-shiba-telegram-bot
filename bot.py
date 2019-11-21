@@ -42,11 +42,6 @@ def command_shiba(update, context):
 def command_help(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, 
         text="/shiba: return an image")
-
-# Stop command:
-def command_stop(update, context):
-    context.bot.send_message(chat_id=update.effective_chat.id, 
-        text="Goodbye!")
     
 def main():
 
