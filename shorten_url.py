@@ -1,5 +1,3 @@
-# Scott Ng 2019
-
 # Encode a number to base58
 def b58encode(s):
     alphabet = '123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ'
