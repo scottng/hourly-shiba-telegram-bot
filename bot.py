@@ -1,9 +1,3 @@
-# Scott Ng 2019
-# University of Southern California (USC)
-
-# Shibas every hour!
-# Telegram bot using the python-telegram-bot wrapper
-
 import os
 import telegram
 from telegram.ext import (Updater, CommandHandler, Filters)
